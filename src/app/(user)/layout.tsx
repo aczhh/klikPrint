@@ -5,7 +5,7 @@ function SiteHeader() {
   return (
     <header className={styles.header}>
       <div className={styles.headerInner}>
-        <Link href="/" className="logo-text">
+        <Link href="/" className={`logo-text ${styles.logoWrap}`}>
           <span className="pink">Klik</span><span className="teal">print</span>
         </Link>
         <nav className={styles.nav}>
@@ -14,9 +14,7 @@ function SiteHeader() {
           <Link href="/dashboard" className={styles.navLink}>Dashboard</Link>
           <Link href="#" className={styles.navLink}>Help</Link>
         </nav>
-        <div className={styles.avatarWrap}>
-          <div className={styles.avatar}>👤</div>
-        </div>
+        <div className={styles.rightSpacer}></div>
       </div>
     </header>
   );

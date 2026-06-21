@@ -4,10 +4,10 @@ import { useRouter } from 'next/navigation';
 import styles from './page.module.css';
 
 const serviceTypes = [
-  { key: 'dokumen', icon: '📄', title: 'Dokumen', sub: 'PDF, Laporan, Skripsi', color: '#EFF6FF', iconBg: '#DBEAFE' },
-  { key: 'foto', icon: '🖼️', title: 'Foto', sub: 'Fine Art Quality', color: '#FFF0F6', iconBg: '#FFD6E7' },
-  { key: 'poster', icon: '🗂️', title: 'Format Lebar', sub: 'Blueprint & Poster Teknis', color: '#ECFDF5', iconBg: '#D1FAE5' },
-  { key: 'marketing', icon: '📣', title: 'Marketing', sub: 'Brosur & Kartu Nama', color: '#FFF7ED', iconBg: '#FED7AA' },
+  { key: 'dokumen', icon: <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>, title: 'Dokumen', sub: 'PDF, Laporan, Skripsi', color: '#F98CAC' },
+  { key: 'foto', icon: <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>, title: 'Foto', sub: 'Fine Art Quality', color: '#F98CAC' },
+  { key: 'poster', icon: <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>, title: 'Format Lebar', sub: 'Blueprint & Poster Teknis', color: '#F98CAC' },
+  { key: 'marketing', icon: <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M2 12h20"></path><path d="M20 12v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-8"></path><path d="M4 6h16l-2-4H6Z"></path></svg>, title: 'Marketing', sub: 'Brosur & Kartu Nama', color: '#F98CAC' },
 ];
 
 export default function UserDashboard() {
@@ -49,7 +49,10 @@ export default function UserDashboard() {
         <div className={styles.locationWrapper}>
           <div className={styles.locationBox}>
             <div className={styles.locIcon}>
-              <svg width="12" height="14" viewBox="0 0 14 18" fill="none"><path d="M7 0C3.13 0 0 3.13 0 7C0 12.25 7 18 7 18C7 18 14 12.25 14 7C14 3.13 10.87 0 7 0ZM7 9.5C5.62 9.5 4.5 8.38 4.5 7C4.5 5.62 5.62 4.5 7 4.5C8.38 4.5 9.5 5.62 9.5 7C9.5 8.38 8.38 9.5 7 9.5Z" fill="#3B82F6"/></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+                <circle cx="12" cy="10" r="3" />
+              </svg>
             </div>
             <div className={styles.locText}>
               <div className={styles.locLabel}>
@@ -60,7 +63,7 @@ export default function UserDashboard() {
               </div>
             </div>
             <div className={styles.locArrow}>
-              <svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1L5 5L9 1" stroke="#64748B" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
+              <svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1L5 5L9 1" stroke="#64748B" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
             </div>
             <select
               className={styles.hiddenSelect}
@@ -130,7 +133,7 @@ export default function UserDashboard() {
               onClick={() => handlePickService(s.key)}
             >
               <div className={styles.serviceTopRow}>
-                <div className={styles.serviceIconWrap} style={{ background: s.iconBg }}>
+                <div className={styles.serviceIconWrap}>
                   <span className={styles.serviceIcon}>{s.icon}</span>
                 </div>
                 <span className={styles.servicePlus}>⊕</span>
