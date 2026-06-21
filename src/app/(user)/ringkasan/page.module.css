@@ -1,0 +1,359 @@
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 24px 80px;
+}
+
+.pageTitle {
+  font-size: 36px;
+  font-weight: 800;
+  color: var(--teal);
+  margin-bottom: 32px;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 28px;
+  align-items: start;
+}
+
+/* Items */
+.items { display: flex; flex-direction: column; gap: 20px; }
+
+.itemCard {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  gap: 20px;
+  box-shadow: var(--shadow-sm);
+  align-items: flex-start;
+}
+
+.itemThumb {
+  width: 100px;
+  height: 100px;
+  background: #E2E8F0;
+  border-radius: 12px;
+  overflow: hidden;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.itemThumbInner {
+  font-size: 40px;
+}
+
+.itemInfo { flex: 1; }
+
+.itemName {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.itemBadge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  background: #FFF7ED;
+  color: #C2410C;
+  margin-bottom: 12px;
+}
+
+.itemSpecs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  font-size: 13px;
+  color: var(--text-mid);
+  margin-bottom: 10px;
+}
+
+.itemMeta {
+  font-size: 13px;
+  color: var(--text-light);
+}
+
+.itemRight {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+  min-width: 120px;
+}
+
+.itemPrice {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--teal);
+}
+
+.itemQty {
+  font-size: 13px;
+  color: var(--text-mid);
+}
+
+.itemActions {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.actionLink {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--teal);
+  cursor: pointer;
+}
+
+.addMore {
+  border: 2px dashed #CBD5E1;
+  border-radius: 14px;
+  padding: 18px;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--teal);
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.addMore:hover { border-color: var(--teal); background: #F0FAFA; }
+
+/* Summary */
+.summary { display: flex; flex-direction: column; gap: 16px; }
+
+.summaryTitle {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.summaryLabel {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.summaryRow {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  color: var(--text-mid);
+  margin-bottom: 10px;
+}
+
+.summaryTotal {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding-top: 16px;
+  border-top: 1.5px solid var(--border);
+  margin-top: 8px;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.totalVal {
+  font-size: 28px;
+  color: #1D4ED8;
+}
+
+.infoBox {
+  display: flex;
+  gap: 10px;
+  background: var(--blue-bg);
+  border: 1px solid var(--blue-border);
+  border-radius: 10px;
+  padding: 12px 14px;
+  font-size: 13px;
+  color: var(--text-mid);
+  margin-top: 16px;
+  line-height: 1.5;
+}
+
+.termsNote {
+  text-align: center;
+  font-size: 12px;
+  color: var(--text-light);
+  margin-top: 12px;
+  line-height: 1.5;
+}
+
+.promoRow {
+  display: flex;
+  gap: 10px;
+}
+
+/* Empty */
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 50vh;
+  gap: 16px;
+  text-align: center;
+}
+
+.emptyIcon { font-size: 64px; }
+
+/* QR Modal */
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(4px);
+}
+
+.modal {
+  background: white;
+  border-radius: 24px;
+  padding: 32px;
+  width: 380px;
+  max-width: 90vw;
+  box-shadow: 0 24px 60px rgba(0,0,0,0.25);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.modalTop { text-align: center; }
+
+.modalLabel {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: var(--text-light);
+  margin-bottom: 8px;
+}
+
+.modalAmount {
+  font-size: 32px;
+  font-weight: 800;
+  color: #1D4ED8;
+  margin-bottom: 6px;
+}
+
+.orderId {
+  font-size: 13px;
+  color: var(--text-light);
+}
+
+.qrBox {
+  background: var(--blue-bg);
+  border: 1.5px solid var(--blue-border);
+  border-radius: 16px;
+  padding: 24px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.qrisLabel {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--teal);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.qrCode {
+  width: 180px;
+  height: 180px;
+  background: white;
+  border: 2px solid #1A6B68;
+  border-radius: 8px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.qrPattern {
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  width: 160px;
+  height: 160px;
+  gap: 1px;
+}
+
+.qrCell {
+  border-radius: 1px;
+}
+
+.qrisLogo {
+  position: absolute;
+  bottom: 8px;
+  font-size: 10px;
+  font-weight: 900;
+  color: #1A6B68;
+  letter-spacing: 1px;
+}
+
+.qrInstr {
+  font-size: 12px;
+  text-align: center;
+  color: var(--text-mid);
+  line-height: 1.6;
+}
+
+.timerBadge {
+  background: #FFF0F0;
+  border: 1px solid #FECACA;
+  border-radius: 20px;
+  padding: 8px 18px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #DC2626;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.timerHint {
+  font-size: 12px;
+  color: var(--text-light);
+  text-align: center;
+}
+
+.modalActions {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cancelBtn {
+  width: 100%;
+  padding: 12px;
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-mid);
+  background: white;
+  transition: all 0.2s;
+}
+.cancelBtn:hover { background: #FFF5F5; border-color: var(--pink); color: var(--pink); }
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+  .itemCard { flex-wrap: wrap; }
+}
