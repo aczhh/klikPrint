@@ -1,0 +1,23 @@
+.header {
+  height: 60px;
+  background: linear-gradient(90deg, #1A6B68 0%, #3D9E9B 40%, #B09AA5 100%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.headerRight { display: flex; align-items: center; }
+
+.avatar {
+  width: 34px;
+  height: 34px;
+  background: rgba(255,255,255,0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 16px;
+}
