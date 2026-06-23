@@ -1,0 +1,226 @@
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 60px 24px 80px;
+}
+
+.successHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.successIcon {
+  width: 72px;
+  height: 72px;
+  background: linear-gradient(135deg, #FFE0EC, #FFD0E0);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  color: var(--pink);
+  font-weight: 700;
+  margin-bottom: 20px;
+  box-shadow: 0 8px 24px rgba(255,138,171,0.25);
+}
+
+.successTitle {
+  font-size: 36px;
+  font-weight: 800;
+  color: var(--teal);
+  margin-bottom: 10px;
+}
+
+.orderNum {
+  font-size: 16px;
+  color: var(--text-mid);
+}
+
+.orderNumVal {
+  color: #1D4ED8;
+  font-weight: 700;
+}
+
+/* Progress Tracker */
+.tracker {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0;
+  margin-bottom: 56px;
+  padding: 0 40px;
+}
+
+.trackerStep {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  position: relative;
+}
+
+.trackerIcon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  border: 2px solid var(--border);
+  background: white;
+  color: var(--text-light);
+  z-index: 1;
+  margin-bottom: 10px;
+}
+
+.trackerIcon[data-active="true"] {
+  background: var(--pink);
+  border-color: var(--pink);
+  color: white;
+  box-shadow: 0 4px 12px rgba(255,138,171,0.35);
+}
+
+.trackerLine {
+  position: absolute;
+  top: 24px;
+  left: 50%;
+  width: 100%;
+  height: 2px;
+  background: var(--border);
+}
+
+.trackerLine[data-active="true"] {
+  background: var(--pink);
+}
+
+.trackerLabel {
+  font-size: 13px;
+  color: var(--text-light);
+  text-align: center;
+}
+
+.trackerLabel[data-active="true"] {
+  color: var(--pink);
+  font-weight: 600;
+}
+
+/* Info Grid */
+.infoGrid {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 24px;
+}
+
+/* Detail Card */
+.detailCard {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 28px;
+  box-shadow: var(--shadow-sm);
+}
+
+.detailTitle {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--teal);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.orderId {
+  margin-left: auto;
+  font-size: 13px;
+  color: var(--text-light);
+  font-weight: 400;
+}
+
+.detailRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+  gap: 16px;
+}
+
+.detailLabel {
+  font-size: 14px;
+  color: var(--text-mid);
+}
+
+.detailVal {
+  font-size: 14px;
+  font-weight: 600;
+  text-align: right;
+}
+
+.detailPaid {
+  font-size: 24px;
+  font-weight: 800;
+  color: #1D4ED8;
+}
+
+/* Estimation Card */
+.estCard {
+  background: linear-gradient(135deg, #1E3A5F 0%, #1D4ED8 100%);
+  border-radius: 16px;
+  padding: 28px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.estLabel {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  opacity: 0.8;
+  margin-bottom: 12px;
+}
+
+.estTime {
+  font-size: 36px;
+  font-weight: 800;
+  margin-bottom: 6px;
+}
+
+.estDate {
+  font-size: 14px;
+  opacity: 0.8;
+  margin-bottom: 24px;
+}
+
+.estVisual {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255,255,255,0.1);
+  border-radius: 12px;
+  padding: 24px;
+  min-height: 120px;
+  font-size: 48px;
+}
+
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 40vh;
+  gap: 16px;
+}
+
+@media (max-width: 768px) {
+  .infoGrid { grid-template-columns: 1fr; }
+  .tracker { padding: 0; }
+}
