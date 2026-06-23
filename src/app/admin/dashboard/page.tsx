@@ -3,11 +3,15 @@ import { useApp } from '@/lib/AppContext';
 import styles from './page.module.css';
 
 export default function AdminDashboardPage() {
-  const { orders, toggleItemStatus, deleteItem } = useApp();
-  const activeOrders = orders.filter(o => o.status !== 'selesai');
+  const { orders, toggleItemStatus, deleteItem, currentAdmin } = useApp();
+  const myLokasi = currentAdmin?.lokasi || '';
+  const activeOrders = orders.filter(o => o.status !== 'selesai' && o.lokasi === myLokasi);
+  const recentlyDone = orders
+    .filter(o => o.status === 'selesai' && o.lokasi === myLokasi)
+    .slice(0, 5);
   const queueData = activeOrders.flatMap(o => 
     o.items.map((item, idx) => ({
-      id: item.id, // Keep the real ID for actions
+      id: item.id,
       displayId: `#${o.orderNumber}-${idx + 1}`,
       orderId: o.id,
       filename: item.filename || '-',
@@ -20,7 +24,8 @@ export default function AdminDashboardPage() {
   ).filter(q => q.status !== 'COMPLETED');
 
   const printingCount = queueData.filter(q => q.status === 'PRINTING').length;
-  const completedCount = orders.filter(o => o.status === 'selesai').length;
+  const completedCount = orders.filter(o => o.status === 'selesai' && o.lokasi === myLokasi).length;
+  const totalOrdersLokasi = orders.filter(o => o.lokasi === myLokasi).length;
   const totalToday = completedCount;
 
   return (
@@ -33,8 +38,8 @@ export default function AdminDashboardPage() {
             <span className={styles.trend} style={{ color: '#10B981' }}>New Orders</span>
           </div>
           <div className={styles.statLabel}>TOTAL ORDERS</div>
-          <div className={styles.statVal}>{orders.length}</div>
-          <div className={styles.statSub}>Cumulative count for month</div>
+          <div className={styles.statVal}>{totalOrdersLokasi}</div>
+          <div className={styles.statSub}>{myLokasi || 'Lokasi belum dipilih'}</div>
         </div>
         <div className={styles.statCard}>
           <div className={styles.statTop}>
@@ -157,6 +162,34 @@ export default function AdminDashboardPage() {
           </div>
         </div>
       </div>
+
+      {/* Recently Completed */}
+      {recentlyDone.length > 0 && (
+        <div className={styles.recentCard}>
+          <div className={styles.recentHeader}>
+            <div className={styles.recentTitle}>
+              <span className={styles.recentDot}></span>
+              Baru Selesai
+            </div>
+            <a href="/admin/dashboard/history" className={styles.recentLink}>Lihat Semua Riwayat →</a>
+          </div>
+          <div className={styles.recentList}>
+            {recentlyDone.map((order, i) => (
+              <div key={i} className={styles.recentRow}>
+                <div className={styles.recentIcon}>✅</div>
+                <div className={styles.recentInfo}>
+                  <div className={styles.recentFile}>{order.items[0]?.filename || '-'}</div>
+                  <div className={styles.recentMeta}>#{order.orderNumber}  ·  {order.items[0]?.nama || '-'}  ·  {order.lokasi}</div>
+                </div>
+                <div className={styles.recentRight}>
+                  <span className={styles.doneBadge}>✓ Selesai</span>
+                  <div className={styles.recentTime}>{order.waktuBayar}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   );
 }

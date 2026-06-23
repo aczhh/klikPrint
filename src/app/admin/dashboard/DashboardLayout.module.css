@@ -163,6 +163,23 @@
 }
 
 @media (max-width: 768px) {
-  .sidebar { position: fixed; left: 0; top: 60px; bottom: 0; z-index: 50; box-shadow: var(--shadow-lg); }
+  .sidebar {
+    position: fixed;
+    left: 0;
+    top: 60px;
+    bottom: 0;
+    z-index: 50;
+    box-shadow: var(--shadow-lg);
+  }
+  .collapsed {
+    width: 0;
+    padding: 0;
+    border-right: none;
+  }
+  .collapsed .sidebarUser,
+  .collapsed .nav,
+  .collapsed .sidebarFooter {
+    display: none;
+  }
   .content { padding: 24px 16px; }
 }

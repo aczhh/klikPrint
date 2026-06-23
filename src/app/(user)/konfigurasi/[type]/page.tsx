@@ -66,12 +66,8 @@ export default function KonfigurasiPage() {
     const estPages = Math.max(1, Math.round(mbSize * 5));
     setSimulatedPages(f.type.startsWith('image/') ? 1 : estPages);
 
-    if (f.type.startsWith('image/')) {
-      const url = URL.createObjectURL(f);
-      setFilePreview(url);
-    } else {
-      setFilePreview('pdf');
-    }
+    const url = URL.createObjectURL(f);
+    setFilePreview(url);
   }, [config]);
 
   const onDrop = (e: React.DragEvent) => {
@@ -154,25 +150,15 @@ export default function KonfigurasiPage() {
                   </div>
                 </div>
                 <div className={styles.previewBody}>
-                  {filePreview && filePreview !== 'pdf' ? (
+                  {filePreview && file?.type.startsWith('image/') ? (
                     <img src={filePreview} alt="preview" className={styles.imagePreview} />
-                  ) : (
-                    <div className={styles.pdfPreview}>
-                      <div className={styles.pdfMockPages}>
-                        <div className={styles.pdfPage}>
-                          <div className={styles.pdfLine}></div>
-                          <div className={styles.pdfLine} style={{ width: '70%' }}></div>
-                          <div className={styles.pdfLine} style={{ width: '85%' }}></div>
-                          <div className={styles.pdfLine} style={{ width: '60%' }}></div>
-                          <div className={styles.pdfLine}></div>
-                          <div className={styles.pdfLine} style={{ width: '90%' }}></div>
-                        </div>
-                        <div className={`${styles.pdfPage} ${styles.pdfPageBg}`}></div>
-                      </div>
-                      <p className={styles.pdfName}>📄 {file.name}</p>
-                      <p className={styles.pdfMeta}>{simulatedPages} halaman terdeteksi</p>
-                    </div>
-                  )}
+                  ) : filePreview ? (
+                    <iframe
+                      src={filePreview}
+                      className={styles.pdfIframe}
+                      title="PDF Preview"
+                    />
+                  ) : null}
                 </div>
               </div>
             </>

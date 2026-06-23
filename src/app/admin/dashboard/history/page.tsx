@@ -12,10 +12,11 @@ const mockHistory = [
 ];
 
 export default function HistoryPage() {
-  const { orders } = useApp();
+  const { orders, currentAdmin } = useApp();
   const [query, setQuery] = useState('');
+  const myLokasi = currentAdmin?.lokasi || '';
 
-  const completedOrders = orders.filter(o => o.status === 'selesai');
+  const completedOrders = orders.filter(o => o.status === 'selesai' && o.lokasi === myLokasi);
   const allHistory = useMemo(
     () => [
       ...completedOrders.map(o => ({
@@ -31,9 +32,9 @@ export default function HistoryPage() {
         durasi: '30 menit',
         lokasi: o.lokasi,
       })),
-      ...mockHistory,
+      ...mockHistory.filter(h => h.lokasi === myLokasi),
     ],
-    [completedOrders]
+    [completedOrders, myLokasi]
   );
 
   const filteredHistory = useMemo(() => {
@@ -54,7 +55,7 @@ export default function HistoryPage() {
     <div className={styles.container}>
       <div className={styles.pageHeader}>
         <h1 className={styles.pageTitle}>Riwayat Pesanan</h1>
-        <p className={styles.pageSub}>Seluruh pesanan yang telah selesai diproses</p>
+        <p className={styles.pageSub}>Pesanan selesai di lokasi <strong>{myLokasi || '-'}</strong></p>
       </div>
 
       {/* Summary Stats */}
@@ -95,11 +96,6 @@ export default function HistoryPage() {
           />
         </div>
         <select className={styles.filterSelect}>
-          <option>Semua Lokasi</option>
-          <option>GKB III Kantek</option>
-          <option>Perpustakaan Pusat</option>
-        </select>
-        <select className={styles.filterSelect}>
           <option>7 Hari Terakhir</option>
           <option>30 Hari Terakhir</option>
           <option>Bulan Ini</option>
@@ -123,7 +119,6 @@ export default function HistoryPage() {
                 <th>QTY</th>
                 <th>TOTAL</th>
                 <th>DURASI CETAK</th>
-                <th>LOKASI</th>
                 <th>TANGGAL</th>
                 <th>STATUS</th>
               </tr>
@@ -163,7 +158,7 @@ export default function HistoryPage() {
         </div>
 
         <div className={styles.pagination}>
-          <span>Menampilkan <strong>{filteredHistory.length}</strong> dari <strong>{allHistory.length}</strong> pesanan</span>
+          <span>Menampilkan <strong>{filteredHistory.length}</strong> dari <strong>{allHistory.length}</strong> pesanan di {myLokasi}</span>
           <div className={styles.pages}>
             <button className={styles.pageBtn}>‹</button>
             <button className={`${styles.pageBtn} ${styles.pageActive}`}>1</button>

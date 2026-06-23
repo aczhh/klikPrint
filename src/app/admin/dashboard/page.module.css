@@ -97,3 +97,108 @@
 .pageActive { background: #1D4ED8; color: white; border-color: #1D4ED8; }
 
 @media (max-width: 900px) { .statsGrid { grid-template-columns: 1fr; } }
+
+/* Recently Completed Section */
+.recentCard {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.recentHeader {
+  padding: 16px 24px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #F0FDF4;
+}
+
+.recentTitle {
+  font-size: 15px;
+  font-weight: 700;
+  color: #15803D;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.recentDot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #22C55E;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.3); }
+}
+
+.recentLink {
+  font-size: 13px;
+  font-weight: 600;
+  color: #1D4ED8;
+  text-decoration: none;
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: 1px solid #BFDBFE;
+  background: #EFF6FF;
+  transition: all 0.15s;
+}
+.recentLink:hover { background: #DBEAFE; }
+
+.recentList { display: flex; flex-direction: column; }
+
+.recentRow {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 24px;
+  border-bottom: 1px solid var(--border);
+  transition: background 0.15s;
+}
+.recentRow:last-child { border-bottom: none; }
+.recentRow:hover { background: #F8FAFC; }
+
+.recentIcon { font-size: 22px; flex-shrink: 0; }
+
+.recentInfo { flex: 1; min-width: 0; }
+.recentFile {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-dark);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.recentMeta { font-size: 12px; color: var(--text-light); margin-top: 2px; }
+
+.recentRight {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.doneBadge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  background: #DCFCE7;
+  color: #15803D;
+  border: 1px solid #BBF7D0;
+}
+
+.recentTime {
+  font-size: 12px;
+  color: var(--text-light);
+  font-family: monospace;
+}
